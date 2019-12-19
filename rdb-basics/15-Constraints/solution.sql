@@ -1,0 +1,13 @@
+CREATE TABLE users (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    username VARCHAR (255) UNIQUE NOT NULL,
+    email VARCHAR (255) NOT NULL,
+    created_at DATE NOT NULL
+);
+
+CREATE TABLE topics (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    user_id INT REFERENCES users (id) NOT NULL,
+    body TEXT NOT NULL,
+    created_at DATE NOT NULL
+);
